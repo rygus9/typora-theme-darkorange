@@ -1,0 +1,416 @@
+@charset "UTF-8";
+
+:root {
+  --black-color: #101820;
+  --white-color: #f0f8ff;
+  --orange-color: #f2aa4c;
+
+  --primary-color: var(--orange-color);
+
+  --bg-color: var(--black-color);
+  --text-color: var(--white-color);
+  --control-text-color: var(--white-color);
+  --rawblock-edit-panel-bd: var(--black-color);
+
+  --active-file-bg-color: var(--black-color);
+  --active-file-border-color: var(--orange-color);
+  --active-file-text-color: var(--orange-color);
+
+  --item-hover-bg-color: var(--black-color);
+  --item-hover-text-color: var(--orange-color);
+
+  --select-text-bg-color: var(--orange-color);
+  --select-text-font-color: var(--white-color);
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  background-color: var(--black-color);
+  line-height: 1.3rem;
+}
+
+#write {
+  max-width: 914px;
+}
+
+@media only screen and (min-width: 1400px) {
+  #write {
+    max-width: 1024px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  #write {
+    max-width: 1200px;
+  }
+}
+
+::-moz-selection {
+  color: var(--white-color);
+  text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+  color: var(--white-color);
+  text-shadow: none;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+  color: var(--white-color);
+  border-color: transparent;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  word-wrap: break-word;
+  -ms-word-wrap: break-word;
+  color: var(--orange-color);
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 2.85rem;
+  letter-spacing: -1.25px;
+}
+
+h2 {
+  font-size: 1.95rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.9px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  letter-spacing: -0.9px;
+}
+
+h4 {
+  font-size: 1.35rem;
+  line-height: 1.6rem;
+}
+
+h5 {
+  font-size: 1.23rem;
+  line-height: 1.49rem;
+}
+
+h6 {
+  font-size: 1.15rem;
+  line-height: 1.44rem;
+}
+
+hr {
+  height: 1px;
+  background-color: var(--orange-color);
+  border: 0;
+  margin: 1rem 0 !important;
+}
+
+/* list */
+ul,
+ol {
+  padding: 0 0 0 1.8rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+  position: relative;
+}
+
+ul > li::before {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  background-color: var(--orange-color);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin-left: -1.2rem;
+  top: 7px;
+}
+
+ol {
+  list-style: none;
+  counter-reset: li;
+}
+
+ol > li {
+  counter-increment: li;
+}
+
+ol > li::before {
+  content: counter(li);
+  font-size: 1.2rem;
+  display: inline-block;
+  position: absolute;
+  transform: translateY(-50%);
+  color: var(--orange-color);
+  margin-left: -1.2rem;
+  top: 10px;
+}
+li.md-task-list-item {
+  display: flex;
+  align-content: center;
+}
+
+li.md-task-list-item > input {
+  position: relative !important;
+  margin-left: 0;
+  margin-top: 1px;
+  margin-right: 1rem;
+}
+
+li.md-task-list-item > input {
+  appearance: none;
+  width: 1rem !important;
+  height: 1rem !important;
+  border: 1px solid var(--white-color);
+  border-radius: 2px;
+  color: var(--white-color);
+}
+
+li.md-task-list-item > input:checked::before {
+  content: "\2713";
+  display: inline-block;
+  text-align: center;
+  color: var(--white-color);
+  position: absolute;
+  left: 2px;
+  top: -1px;
+}
+
+li.md-task-list-item::before {
+  content: none;
+}
+
+/* block */
+p,
+blockquote,
+.md-fences {
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+}
+
+blockquote {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 0 0 1rem 0.5rem;
+  border-left: solid 2px var(--white-color);
+}
+
+pre.md-fences {
+  padding: 1rem 1rem 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background: #222a32;
+  font-size: 1rem;
+}
+
+pre.md-meta-block {
+  font-size: 1rem;
+  background-color: transparent;
+  padding: 0.5rem 0rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed var(--white-color);
+}
+
+[mdtype="math_block"] {
+  background: var(--black-color) !important;
+}
+
+/* table */
+table {
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+th {
+  color: var(--orange-color);
+}
+
+th,
+td {
+  border: 1px solid var(--white-color);
+  padding: 0.5rem 1rem;
+  vertical-align: top;
+}
+
+/* inline element*/
+a {
+  color: var(--white-color);
+  text-decoration: underline;
+  font-size: 1rem;
+  outline: 0;
+  transition: color 0.3s;
+}
+
+a:hover,
+a:active {
+  color: var(--orange-color);
+}
+
+span.md-url {
+  color: var(--orange-color);
+}
+
+b,
+th,
+dt,
+strong {
+  font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+  font-style: italic;
+}
+
+code {
+  padding: 3px;
+}
+
+/* side bar */
+#typora-sidebar {
+  border-right: 1px solid white;
+}
+
+#typora-sidebar .file-list-item-file-ext-part {
+  opacity: 0.8;
+}
+
+#outline-content li {
+  padding: inherit;
+  padding-left: 0;
+  margin: inherit;
+}
+
+#outline-content li::before {
+  display: none;
+}
+
+/* code block */
+.CodeMirror div.CodeMirror-cursor {
+  color: var(--white-color);
+  border-left: 1px solid var(--white-color);
+  z-index: 3;
+}
+
+.cm-s-inner .cm-keyword {
+  color: #ffaaff;
+}
+
+.cm-s-inner .cm-operator {
+  color: #faafaa;
+}
+
+.cm-s-inner .cm-variable {
+  color: #aaaaff;
+}
+
+.cm-s-inner .cm-variable-2 {
+  color: #aaffff;
+}
+
+.cm-s-inner .cm-variable-3 {
+  color: #aafaaf;
+}
+
+.cm-s-inner .cm-builtin {
+  color: #ffaaaa;
+}
+
+.cm-s-inner .cm-number {
+  color: #abcdef;
+}
+
+.cm-s-inner .cm-comment {
+  color: #f2aa4c;
+}
+
+.cm-s-inner .cm-string {
+  color: #f2aa4c;
+}
+
+.cm-s-inner .cm-string-2 {
+  color: #ffaaaa;
+}
+
+.cm-s-inner .cm-tag {
+  color: #aafaaf;
+}
+
+.cm-s-inner .cm-mete {
+  color: #aafaaf;
+}
+
+.cm-s-inner .cm-attribute {
+  color: #ffaaaa;
+}
+
+.cm-s-inner .cm-property {
+  color: #dddddd;
+}
+
+.cm-s-inner .cm-qualifier {
+  color: #ffaaaa;
+}
+
+.cm-s-inner .cm-def {
+  color: #aaaaf2;
+}
+
+/* source mode */
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+  border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+  color: rgb(178, 185, 236);
+}
+
+.cm-s-typora-default .cm-header {
+  color: rgb(245, 194, 216);
+}
+
+.cm-s-typora-default .cm-atom {
+  color: rgb(193, 187, 188);
+}
